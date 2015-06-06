@@ -26,6 +26,9 @@
                 left: 20px;
                 width: 400px;
             }
+            #svg-wrapper {
+                min-height: 600px;
+            }    
         </style>
 
         <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -78,13 +81,14 @@
 
         <div class="container">
 
+            <!--  
             <div id="svgContainer">
                 <svg version="1.1" id="svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 647 405" enable-background="new 0 0 647 405" xml:space="preserve">
 
-                    <!-- ANIMATION PATH -->
+                    <!- - ANIMATION PATH - ->
                     <path id="animationPath" fill="none" stroke="#FFFFFF" stroke-miterlimit="10" d="M539.656,43.662c0,0,0,224.555,0,238.947 c0,14.392-13.502,23.064-24.58,23.064c-11.077,0-465.567,0-465.567,0"/>
 
-                    <!-- ARROW AND ANIMATION SEQUENCE -->
+                    <!- - ARROW AND ANIMATION SEQUENCE - ->
                     <path id="arrow" d="M 10 10 L 30 10 L 20 30 z" fill="#FFFFFF" transform = "scale(1,-1) rotate(-90 10 10)" />
                         <animateMotion 
                             xlink:href="#arrow"
@@ -344,6 +348,9 @@
                 <text transform="matrix(1 0 0 1 539.2659 366.6199)" font-family="'MyriadPro-Regular'" font-size="7">02.35</text>
                 </svg>
             </div>
+            -->
+
+            <div id="svg-wrapper"></div>
 
             <div id="zoomBtnContainer_">
                 <button id="showRoute">Show Route</button>
@@ -362,13 +369,18 @@
         <script src="js/jquery.zoomPanTouchSVG.js"></script>
         <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
         <script src="js/ie10-viewport-bug-workaround.js"></script>
+        <script src="js/d3.v3.min.js"></script>
+        <script src="js/svg.js"></script>
+        <script src="js/app.js"></script>
 
           <script>
 
+              /*
             $('#svg').zoomPanTouchSVG({
                 zoomBtnContainer: '#zoomBtnContainer'
             });
-
+            */
+            
             /* 
              * bof: fixWebkitHeightBug
              * Fix a known bug in WebKit browsers where SVG's height
@@ -386,6 +398,7 @@
                 }
             };
 
+
             $(window).resize(function() {
                 fixWebkitHeightBug();
             });
@@ -394,12 +407,13 @@
                 fixWebkitHeightBug();
             });
 
+            
             /*
              * eof: fixWebkitHeightBug
              */
             
-              $("#showRoute").click(function() {
                 /*
+              $("#showRoute").click(function() {
                 var motion=document.createElementNS("http://www.w3.org/2000/svg","animateMotion");
                 motion.setAttribute("xlink:href", "#arrow");
                 motion.setAttribute("id", "pathanim");
@@ -410,9 +424,9 @@
                 motion.setAttribute("repeatCount", "indefinite");
                 motion.setAttribute("path", "M539.656,43.662c0,0,0,224.555,0,238.947 c0,14.392-13.502,23.064-24.58,23.064c-11.077,0-465.567,0-465.567,0");
                 $(pathanim).appendChild(motion);
-                */
                 $("#pathanim").beginElement();
               });
+                */
             
               
         </script>
