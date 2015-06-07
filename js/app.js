@@ -1,10 +1,9 @@
 
-var svg;
 
 jQuery(function($) {
 
     // Load svg.
-    svg = new SVG("../images/garage-animated.svg");
+    var svg = new SVG("../images/garage-animated.svg");
     svg.load(function() {
         console.log( 'svg loaded' );
     });
@@ -30,21 +29,10 @@ jQuery(function($) {
             manual_zoom(ratio);
         }
     });
-
-
-    /*
-    var motion=document.createElementNS("http://www.w3.org/2000/svg","animateMotion");
-    motion.setAttribute("xlink:href", "#arrow");
-    motion.setAttribute("id", "pathanim");
-    motion.setAttribute("dur", "10s");
-    motion.setAttribute("fill", "freeze");
-    motion.setAttribute("rotate", "auto");
-    motion.setAttribute("begin", "1.5s"); // indefinite
-    motion.setAttribute("repeatCount", "10s"); // indefinite
-     */
+    
     
     $("#showRoute").on("click", function() {
-        
+        $("#pathanim").get(0).beginElement(); 
     });
     
 });

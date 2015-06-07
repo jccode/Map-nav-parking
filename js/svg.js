@@ -69,11 +69,10 @@ SVG.prototype = {
         var self = this;
         d3.xml(path, 'image/svg+xml', function(xml) {
             self.innersvg = self.container.append('g')
-                .append(function() {
-                    return xml.documentElement;
+                .html(function() {
+                    return xml.documentElement.innerHTML;
                 });
-
-            callback && callback();
+             callback && callback();
         }); 
     }, 
 
